@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity
+            android:name=".activity.DefaultErrorActivity"
+            android:exported="true"
+            android:process=":error_activity"
+            android:theme="@android:style/Theme.Material.Light.NoActionBar" />
+
+        <provider
+            android:name=".provider.CrashInitProvider"
+            android:authorities="${applicationId}.crashinitprovider"
+            android:exported="true"
+            android:initOrder="101" />
+    </application>
+</manifest>
