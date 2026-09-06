@@ -13,11 +13,21 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import dikiz.app.crashreport.activity.CrashActivity
+import dikiz.app.crashreport.config.CrashConfig
 import dikiz.app.crashreport.example.ui.theme.CrashReportSampleTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        CrashActivity.setConfig(
+            CrashConfig(
+                isEnabled = true,
+                isShowRestartButton = true,
+                isTrackActivities = true,
+                restartActivityClass = MainActivity::class.java
+            )
+        )
         enableEdgeToEdge()
         setContent {
             CrashReportSampleTheme {

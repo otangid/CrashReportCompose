@@ -54,6 +54,10 @@ object CrashActivity {
     var config = CrashConfig()
         private set
 
+    fun setConfig(newConfig: CrashConfig) {
+        config = newConfig
+    }
+
     private val activityLog = ArrayDeque<String>(MAX_ACTIVITIES_IN_LOG)
     private var lastActivityCreated = WeakReference<Activity?>(null)
     private var isInBackground = true

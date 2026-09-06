@@ -23,6 +23,7 @@ data class CrashConfig(
 ) : Parcelable {
 
     companion object {
+        const val BACKGROUND_MODE_SILENT = 0
         const val BACKGROUND_MODE_SHOW_CUSTOM = 1
         const val BACKGROUND_MODE_CRASH = 2
     }

@@ -1,6 +1,10 @@
 package dikiz.app.crashreport.activity
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -35,6 +39,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import dikiz.app.crashreport.theme.CrashReportTheme
+
 
 class DefaultErrorActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
@@ -127,7 +132,10 @@ class DefaultErrorActivity : ComponentActivity() {
                                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                                     modifier = Modifier.padding(bottom = 8.dp)
                                 ) {
-                                    FilledTonalButton({}, modifier = Modifier.weight(1f)) { Text("Copy") }
+                                    FilledTonalButton(
+                                        { copyErrorToClipboard(this@DefaultErrorActivity, stackTrace) },
+                                        modifier = Modifier.weight(1f)
+                                    ) { Text("Copy") }
                                     Button({ showDetails = false }, modifier = Modifier.weight(1f)) { Text("Close") }
                                 }
                             }
@@ -136,5 +144,14 @@ class DefaultErrorActivity : ComponentActivity() {
                 }
             }
         }
+    }
+}
+
+private fun copyErrorToClipboard(context: Context, errorInformation: String) {
+    val clipboard: ClipboardManager? = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
+    if (clipboard != null) {
+        val clip = ClipData.newPlainText("Error Information", errorInformation)
+        clipboard.setPrimaryClip(clip)
+        Toast.makeText(context, "Copied", Toast.LENGTH_SHORT).show()
     }
 }

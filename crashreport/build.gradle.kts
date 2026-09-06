@@ -1,5 +1,3 @@
-import java.util.Properties
-
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.compose)
@@ -44,7 +42,7 @@ mavenPublishing {
     coordinates(
         groupId = "io.github.otangid",
         artifactId = "CrashReportCompose",
-        version = "1.0"
+        version = "1.1"
     )
 
     pom {
