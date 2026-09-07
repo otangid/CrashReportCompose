@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "dikiz.app.crashreport"
+    namespace = "otang.id.lib.crashreport"
     compileSdk {
         version = release(37)
     }
@@ -42,7 +42,7 @@ mavenPublishing {
     coordinates(
         groupId = "io.github.otangid",
         artifactId = "CrashReportCompose",
-        version = "1.1"
+        version = "2.0"
     )
 
     pom {

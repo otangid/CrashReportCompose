@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "dikiz.app.crashreport.example"
+    namespace = "otang.id.lib.crashreport.example"
     compileSdk {
         version = release(37)
     }
 
     defaultConfig {
-        applicationId = "dikiz.app.crashreport.example"
+        applicationId = "otang.id.lib.crashreport.example"
         minSdk = 31
         targetSdk = 37
         versionCode = 1
